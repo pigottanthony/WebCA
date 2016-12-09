@@ -1,5 +1,10 @@
 @(products: List[models.Product])
 @main("Products"){
+    @if(flash.containsKey("success")){
+        <div class=""alert alert-success">
+        @flash.get("success")
+        </div>
+    }
     @for(p <- products){
         <tr>
             <td class="numeric">@p.getId</td>
@@ -7,10 +12,17 @@
             <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
             <td>
                 <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
-                onclick="return confirmDEl();">
-                    <span class=""
+                onclick="return confirmDel();">
+                    <span class="gylpicon glyphicon-trash"></span>
+                    </a>
+                </td>
                 </a>
             </td>
         </tr>
     }
+    <script>
+        function confirmDel(){
+            return confirm('Are you sure?');
+        }
+    </script>
 }

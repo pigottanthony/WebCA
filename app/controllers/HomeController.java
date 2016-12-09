@@ -64,4 +64,9 @@ public class HomeController extends Controller {
         flash("success", "Product " + newProduct.getName() + " has been created!");
         return redirect(controllers.routes.HomeController.prod());
     }
+    public Result deleteProduct(Long id){
+        Product.find.ref(id).delete();
+        flash("success","Product has been deleted");
+        return redirect(routes.HomeController.prod());
+    }
 }

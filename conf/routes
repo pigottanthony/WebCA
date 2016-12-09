@@ -13,6 +13,7 @@ GET	    /account			controllers.HomeController.account
 GET	    /checkout			controllers.HomeController.checkout
 GET     /addProduct        controllers.HomeController.addProduct
 POST     /addProductSubmit   controllers.HomeController.addProductSubmit
+GET      /delProduct/:id        controllers.HomeController.deleteProduct(id: Long)
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
