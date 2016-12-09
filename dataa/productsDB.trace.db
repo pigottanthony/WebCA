@@ -95,3 +95,113 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-192]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 89 more
+2016-12-09 14:13:08 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "PRODUCT_SEQ" already exists; SQL statement:
+CREATE OR REPLACE SEQUENCE "PRODUCT_SEQ" MINVALUE 1 MAXVALUE 999 INCREMENT BY 1 [90035-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:57)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2016-12-09 14:13:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "product_Seq" not found; SQL statement:
+DROP SEQUENCE "product_Seq" [90036-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.ddl.DropSequence.update(DropSequence.java:45)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2016-12-09 14:13:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "PRODUCT_SEQ" already exists; SQL statement:
+CREATE OR REPLACE SEQUENCE "PRODUCT_SEQ" MINVALUE 1 MAXVALUE 999 INCREMENT BY 1 [90035-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.ddl.CreateSequence.update(CreateSequence.java:57)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2016-12-09 14:14:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "/[*]
+
+CREATE SEQUENCE ""PRODUCT_SEQ"" MINVALUE 1 MAXVALUE 999 INCREMENT BY 1"; SQL statement:
+/
+
+CREATE SEQUENCE "PRODUCT_SEQ" MINVALUE 1 MAXVALUE 999 INCREMENT BY 1 [42000-192]
+2016-12-09 14:14:14 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Sequence "PRODUCT_SEQ" not found; SQL statement:
+DROP SEQUENCE "PRODUCT_SEQ" [90036-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.ddl.DropSequence.update(DropSequence.java:45)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:184)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1388)
+	at org.h2.server.web.WebApp.query(WebApp.java:1061)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1023)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1010)
+	at org.h2.server.web.WebThread.process(WebThread.java:164)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+2016-12-09 14:18:17 jdbc[5]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:100)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:130)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:187)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:129)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:102)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:735)
+	at org.h2.server.web.WebApp.login(WebApp.java:955)
+	at org.h2.server.web.WebApp.process(WebApp.java:211)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 14 more

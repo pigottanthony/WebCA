@@ -19,15 +19,13 @@ import models.*;
  */
 public class HomeController extends Controller {
 
-    /**
-     * An action that renders an HTML page with a welcome message.
-     * The configuration in the <code>routes</code> file means that
-     * this method will be called when the application receives a
-     * <code>GET</code> request with a path of <code>/</code>.
-     */
-  	public Result index() {
-      	  	return ok(index.render());
-   	}
+	private FormFactory formFactory;
+
+    @Inject
+    public HomeController(FormFactory f) {
+        this.formFactory = f;
+    }
+	public Result index() {return ok(index.render());}
 	public Result about(){
 		return ok(about.render());
 	}
@@ -51,5 +49,19 @@ public class HomeController extends Controller {
 	public Result checkout(){
 		return ok(checkout.render());
 	}
-	public Result addProduct() {return ok(addProduct.render());}
+    public Result addProduct(){
+        Form<Product> addProductForm = formFactory.form(Product.class);
+        return ok(addProduct.render(addProductForm));
+    }
+    public Result addProductSubmit(){
+        Form<Product> newProductForm = formFactory.form(Product.class).bindFromRequest();
+
+        if(newProductForm.hasErrors()){
+            return badRequest(addProduct.render(newProductForm));
+        }
+        Product newProduct = newProductForm.get();
+        newProduct.save();
+        flash("success", "Product " + newProduct.getName() + " has been created!");
+        return redirect(controllers.routes.HomeController.prod());
+    }
 }

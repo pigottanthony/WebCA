@@ -12,6 +12,7 @@ GET	    /cart				controllers.HomeController.cart
 GET	    /account			controllers.HomeController.account
 GET	    /checkout			controllers.HomeController.checkout
 GET     /addProduct        controllers.HomeController.addProduct
+POST     /addProductSubmit   controllers.HomeController.addProductSubmit
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

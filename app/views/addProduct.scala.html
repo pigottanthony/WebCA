@@ -1,3 +1,25 @@
-@main("addProduct"){
+@import helper._
+@(addProductForm: Form[models.Product])
 
+@main("addProduct"){
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <h4 style="font-weight:bold;">Add a new product</h4>
+            </div>
+            @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role ->"form"){
+                @inputText(addProductForm("name"), '_label -> "Name:", 'class -> "form-control")
+                @inputText(addProductForm("description"), '_label -> "Description:", 'class -> "form-control")
+                @inputText(addProductForm("stock"), '_label -> "Units:", 'class -> "form-control")
+                @inputText(addProductForm("price"), '_label -> "Price:", 'class -> "form-control")
+
+                <div class="actions">
+                    <input type="submit" value="Add Product" class="btn btn-primary">
+                    <a href="@routes.HomeController.index()"
+                        <button class="btn btn-warning">Cancel</button>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
 }

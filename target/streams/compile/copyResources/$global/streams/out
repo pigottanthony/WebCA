@@ -4,4 +4,5 @@
 [0m[[0mdebug[0m] [0m	(/home/wdd/webapps/webca/conf/routes,/home/wdd/webapps/webca/target/scala-2.11/classes/routes)[0m
 [0m[[0mdebug[0m] [0m	(/home/wdd/webapps/webca/conf/logback.xml,/home/wdd/webapps/webca/target/scala-2.11/classes/logback.xml)[0m
 [0m[[0mdebug[0m] [0m	(/home/wdd/webapps/webca/conf/evolutions/default,/home/wdd/webapps/webca/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/wdd/webapps/webca/conf/evolutions/default/2.sql,/home/wdd/webapps/webca/target/scala-2.11/classes/evolutions/default/2.sql)[0m
 [0m[[0mdebug[0m] [0m	(/home/wdd/webapps/webca/conf/evolutions/default/1.sql,/home/wdd/webapps/webca/target/scala-2.11/classes/evolutions/default/1.sql)[0m
