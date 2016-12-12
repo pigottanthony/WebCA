@@ -1,50 +1,64 @@
 @(products: List[models.Product], categories: List[models.Category])
 @main("Products"){
-    <div class="col-md-2">
-        <div class="list-group">
-            <a href="@routes.HomeController.prod(0)" class="list-group-item">All Categories</a>
-                @for(c <- categories) {
-                    <li class="list-group-item">@c.getName
-                    <span class="badge">@c.getProducts.size()</span>
-                    </li>
-                }
+    <div class="col-md-3">
+        <h4 class="text-center">Filters</h4>
+        <div id="accordion">
+            <h4>Categories</h4>
+            <div>
+                <div class="list-group">
+                    <a href="@routes.HomeController.prod(0)" class="list-group-item">All Categories</a>
+                    @for(c <- categories) {
+                        <li class="list-group-item">@c.getName
+                        <span class="badge">@c.getProducts.size()</span>
+                        </li>
+                    }
+                </div>
+            </div>
+            <h4>Price</h4>
+            <div>
+            </div>
+            <h4>Brand</h4>
+            <div>
+            </div>
         </div>
     </div>
-    <div class="col-md=8">
-    @if(flash.containsKey("success")){
-        <div class="alert alert-success">
-        @flash.get("success")
+    <div class="col-md-9">
+        <div class="col-md=8">
+            @if(flash.containsKey("success")){
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
+            }
+            @for(p <- products){
+                <tr>
+                    <td class="numeric">@p.getId</td>
+                    <td>@p.getName</td>
+                    <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
+                    <td>
+                        <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+
+                    </td>
+                    <td>
+                        <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
+                        onclick="return confirmDel();">
+                            <span class="gylpicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                    </a>
+                    </td>
+                </tr>
+            }
+            <script>
+                    function confirmDel(){
+                        return confirm('Are you sure?');
+                    }
+            </script>
         </div>
-    }
-    @for(p <- products){
-        <tr>
-            <td class="numeric">@p.getId</td>
-            <td>@p.getName</td>
-            <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
-            <td>
-                <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
-                <span class="glyphicon glyphicon-pencil"></span>
-                </a>
+        <div class="col-md-1">
 
-            </td>
-            <td>
-                <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
-                    onclick="return confirmDel();">
-                    <span class="gylpicon glyphicon-trash"></span>
-                </a>
-            </td>
-                </a>
-            </td>
-        </tr>
-    }
-    <script>
-        function confirmDel(){
-            return confirm('Are you sure?');
-        }
-    </script>
-    </div>
-    <div class="col-md-2">
-
+        </div>
     </div>
 
 }

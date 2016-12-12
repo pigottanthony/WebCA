@@ -30,71 +30,75 @@ class contact extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,For
 
 
 Seq[Any](_display_(/*1.2*/main("Contact")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
-  """),format.raw/*2.3*/("""<div class="text-center">
-  <h2>Contact Us</h2>
-    <h4 class="contacthead">Have a problem? Please fill in the online customer service form below for a quick response.</h4>
-    <!--<h4 class="contacthead">Is it urgent? Contact us directly:</br></h4><h5> Phone: 01-4578964 </br> Email: info_[BRANDNAME].ie</h5>
-    <h5>Available: </br> 09:00 - 17:00	 Monday to Friday </br> 10:00 - 16:00 Saturday & Sunday</h5>  --> 
-  </div>			   
-<form class="form-horizontal">
-<fieldset>
+    """),format.raw/*2.5*/("""<div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+          <div class="text-center">
+          <h2>Contact Us</h2>
+            <h4 class="contacthead">Have a problem? Please fill in the online customer service form below for a quick response.</h4>
+            <!--<h4 class="contacthead">Is it urgent? Contact us directly:</br></h4><h5> Phone: 01-4578964 </br> Email: info_[BRANDNAME].ie</h5>
+            <h5>Available: </br> 09:00 - 17:00	 Monday to Friday </br> 10:00 - 16:00 Saturday & Sunday</h5>  -->
+          </div>
+        <form class="form-horizontal">
+        <fieldset>
 
 
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">First Name</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-  </div>
-</div>
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Last Name</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-  </div>
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">First Name</label>
+          <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Last Name</label>
+          <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
+          </div>
+        </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Your Email</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-    
-  </div>
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Your Email</label>
+          <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Subject</label>  
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-    
-  </div>
-</div>
+          </div>
+        </div>
 
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textarea">Comment</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="textarea" name="textarea" required></textarea>
-  </div>
-</div>
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textinput">Subject</label>
+          <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
 
-<!-- Button -->
-<div class="text-center">
-<div class="form-group">
-  <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
-    <button id="singlebutton" name="singlebutton" class="btn btn-success">Submit </button>
-  </div>
-</div>
-</div>
+          </div>
+        </div>
 
-</fieldset>
-</form>
+        <!-- Textarea -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="textarea">Comment</label>
+          <div class="col-md-4">
+            <textarea class="form-control" id="textarea" name="textarea" required></textarea>
+          </div>
+        </div>
 
-""")))}),format.raw/*66.2*/("""
+        <!-- Button -->
+        <div class="text-center">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton"></label>
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-success">Submit </button>
+          </div>
+        </div>
+        </div>
+
+        </fieldset>
+        </form>
+    </div>
+
+""")))}),format.raw/*70.2*/("""
 """))
       }
     }
@@ -115,11 +119,11 @@ Seq[Any](_display_(/*1.2*/main("Contact")/*1.17*/{_display_(Seq[Any](format.raw/
 object contact extends contact_Scope0.contact
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 08 15:53:44 GMT 2016
-                  SOURCE: /home/wdd/webapps/webca/app/views/contact.scala.html
-                  HASH: dfc4530302503f76cb0dc011c4f1096a90eadd26
-                  MATRIX: 831->1|854->16|892->17|921->20|3057->2126
-                  LINES: 32->1|32->1|32->1|33->2|97->66
+                  DATE: Mon Dec 12 22:55:11 GMT 2016
+                  SOURCE: /home/wdd/webapps/thing/webca/app/views/contact.scala.html
+                  HASH: 65133e3e72d7f90075c30d6062b4a461f9be9769
+                  MATRIX: 831->1|854->16|892->17|923->22|3514->2583
+                  LINES: 32->1|32->1|32->1|33->2|101->70
                   -- GENERATED --
               */
           

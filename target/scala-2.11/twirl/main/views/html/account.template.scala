@@ -30,18 +30,23 @@ class account extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,For
 
 
 Seq[Any](_display_(/*1.2*/main("Account")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
-"""),format.raw/*2.1*/("""<div class="text-center">
-    <form>
-        Email:<br>
-        <input type="text" name="email"><br>
-        Password:<br>
-        <input type="password" name="password"><br>
-        <br>
-        <input type="submit" value="Sign In"><br>
-    </form>
-    <p>Don't have an account? <a href="/signup">Sign Up!</a></p>
+"""),format.raw/*2.1*/("""<div class="col-md-2">
 </div>
-""")))}),format.raw/*13.2*/("""
+<div class="col-md-10">
+    <div class="text-center">
+        <form>
+            Email:<br>
+            <input type="text" name="email"><br>
+            Password:<br>
+            <input type="password" name="password"><br>
+            <br>
+            <input type="submit" value="Sign In"><br>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up!</a></p>
+    </div>
+</div>
+
+""")))}),format.raw/*18.2*/("""
 """))
       }
     }
@@ -62,11 +67,11 @@ Seq[Any](_display_(/*1.2*/main("Account")/*1.17*/{_display_(Seq[Any](format.raw/
 object account extends account_Scope0.account
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 08 15:53:44 GMT 2016
-                  SOURCE: /home/wdd/webapps/webca/app/views/account.scala.html
-                  HASH: 90b2f61ff65146a817594233975103ec8f0290a3
-                  MATRIX: 831->1|854->16|892->17|919->18|1272->341
-                  LINES: 32->1|32->1|32->1|33->2|44->13
+                  DATE: Mon Dec 12 22:55:11 GMT 2016
+                  SOURCE: /home/wdd/webapps/thing/webca/app/views/account.scala.html
+                  HASH: ab2a7d00facd0d1c66aefc97b5a9bd746b604fd5
+                  MATRIX: 831->1|854->16|892->17|919->18|1378->447
+                  LINES: 32->1|32->1|32->1|33->2|49->18
                   -- GENERATED --
               */
           

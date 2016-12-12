@@ -30,22 +30,25 @@ class signup extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 
 
 Seq[Any](_display_(/*1.2*/main("Sign Up")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
-
-"""),format.raw/*3.1*/("""<div class="text-center">
-	<div class="forms">
-		<form>
-			<input type="text" name="firstname" placeholder="Enter First Name"></br></br>
-			<input type="text" name="lastname" placeholder="Enter Last Name"></br></br>
-			<input type="text" name="email" placeholder="Enter Email Address"><br></br>
-			<input type="password" name="password" placeholder="Enter Password"><br></br>
-			<input type="password" name="passwordconfirm" placeholder="Confirm Password"><br></br>
-			<input type="submit" value="Submit"><br>
-		</form>
-	<p> Already have an account?<a href="/account">Sign In</a> </p>
+"""),format.raw/*2.1*/("""<div class="col-md-2">
+</div>
+<div class="col-md-10">
+	<div class="text-center">
+		<div class="forms">
+			<form>
+				<input type="text" name="firstname" placeholder="Enter First Name"></br></br>
+				<input type="text" name="lastname" placeholder="Enter Last Name"></br></br>
+				<input type="text" name="email" placeholder="Enter Email Address"><br></br>
+				<input type="password" name="password" placeholder="Enter Password"><br></br>
+				<input type="password" name="passwordconfirm" placeholder="Confirm Password"><br></br>
+				<input type="submit" value="Submit"><br>
+			</form>
+		<p> Already have an account?<a href="/account">Sign In</a> </p>
+		</div>
 	</div>
 </div>
 
-""")))}),format.raw/*17.2*/("""
+""")))}),format.raw/*20.2*/("""
 """))
       }
     }
@@ -66,11 +69,11 @@ Seq[Any](_display_(/*1.2*/main("Sign Up")/*1.17*/{_display_(Seq[Any](format.raw/
 object signup extends signup_Scope0.signup
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 08 15:53:44 GMT 2016
-                  SOURCE: /home/wdd/webapps/webca/app/views/signup.scala.html
-                  HASH: 3fca688a670972dc2e2b397ffe544e447a42939f
-                  MATRIX: 829->1|852->16|890->17|918->19|1550->621
-                  LINES: 32->1|32->1|32->1|34->3|48->17
+                  DATE: Mon Dec 12 22:55:11 GMT 2016
+                  SOURCE: /home/wdd/webapps/thing/webca/app/views/signup.scala.html
+                  HASH: 814cdd472095a7586a2c4a662574596a451ab956
+                  MATRIX: 829->1|852->16|890->17|917->18|1623->694
+                  LINES: 32->1|32->1|32->1|33->2|51->20
                   -- GENERATED --
               */
           

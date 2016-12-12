@@ -31,54 +31,68 @@ class prod extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format
 
 Seq[Any](format.raw/*1.69*/("""
 """),_display_(/*2.2*/main("Products")/*2.18*/{_display_(Seq[Any](format.raw/*2.19*/("""
-    """),format.raw/*3.5*/("""<div class="col-md-2">
-        <div class="list-group">
-            <a href=""""),_display_(/*5.23*/routes/*5.29*/.HomeController.prod(0)),format.raw/*5.52*/("""" class="list-group-item">All Categories</a>
-                """),_display_(/*6.18*/for(c <- categories) yield /*6.38*/ {_display_(Seq[Any](format.raw/*6.40*/("""
-                    """),format.raw/*7.21*/("""<li class="list-group-item">"""),_display_(/*7.50*/c/*7.51*/.getName),format.raw/*7.59*/("""
-                    """),format.raw/*8.21*/("""<span class="badge">"""),_display_(/*8.42*/c/*8.43*/.getProducts.size()),format.raw/*8.62*/("""</span>
-                    </li>
-                """)))}),format.raw/*10.18*/("""
-        """),format.raw/*11.9*/("""</div>
+    """),format.raw/*3.5*/("""<div class="col-md-3">
+        <h4 class="text-center">Filters</h4>
+        <div id="accordion">
+            <h4>Categories</h4>
+            <div>
+                <div class="list-group">
+                    <a href=""""),_display_(/*9.31*/routes/*9.37*/.HomeController.prod(0)),format.raw/*9.60*/("""" class="list-group-item">All Categories</a>
+                    """),_display_(/*10.22*/for(c <- categories) yield /*10.42*/ {_display_(Seq[Any](format.raw/*10.44*/("""
+                        """),format.raw/*11.25*/("""<li class="list-group-item">"""),_display_(/*11.54*/c/*11.55*/.getName),format.raw/*11.63*/("""
+                        """),format.raw/*12.25*/("""<span class="badge">"""),_display_(/*12.46*/c/*12.47*/.getProducts.size()),format.raw/*12.66*/("""</span>
+                        </li>
+                    """)))}),format.raw/*14.22*/("""
+                """),format.raw/*15.17*/("""</div>
+            </div>
+            <h4>Price</h4>
+            <div>
+            </div>
+            <h4>Brand</h4>
+            <div>
+            </div>
+        </div>
     </div>
-    <div class="col-md=8">
-    """),_display_(/*14.6*/if(flash.containsKey("success"))/*14.38*/{_display_(Seq[Any](format.raw/*14.39*/("""
-        """),format.raw/*15.9*/("""<div class="alert alert-success">
-        """),_display_(/*16.10*/flash/*16.15*/.get("success")),format.raw/*16.30*/("""
-        """),format.raw/*17.9*/("""</div>
-    """)))}),format.raw/*18.6*/("""
-    """),_display_(/*19.6*/for(p <- products) yield /*19.24*/{_display_(Seq[Any](format.raw/*19.25*/("""
-        """),format.raw/*20.9*/("""<tr>
-            <td class="numeric">"""),_display_(/*21.34*/p/*21.35*/.getId),format.raw/*21.41*/("""</td>
-            <td>"""),_display_(/*22.18*/p/*22.19*/.getName),format.raw/*22.27*/("""</td>
-            <td class="numeric">&euro; """),_display_(/*23.41*/("%.2f".format(p.getPrice))),format.raw/*23.68*/("""</td>
-            <td>
-                <a href=""""),_display_(/*25.27*/routes/*25.33*/.HomeController.updateProduct(p.getId)),format.raw/*25.71*/("""" class="btn-xs btn-danger">
-                <span class="glyphicon glyphicon-pencil"></span>
-                </a>
+    <div class="col-md-9">
+        <div class="col-md=8">
+            """),_display_(/*27.14*/if(flash.containsKey("success"))/*27.46*/{_display_(Seq[Any](format.raw/*27.47*/("""
+                """),format.raw/*28.17*/("""<div class="alert alert-success">
+                """),_display_(/*29.18*/flash/*29.23*/.get("success")),format.raw/*29.38*/("""
+                """),format.raw/*30.17*/("""</div>
+            """)))}),format.raw/*31.14*/("""
+            """),_display_(/*32.14*/for(p <- products) yield /*32.32*/{_display_(Seq[Any](format.raw/*32.33*/("""
+                """),format.raw/*33.17*/("""<tr>
+                    <td class="numeric">"""),_display_(/*34.42*/p/*34.43*/.getId),format.raw/*34.49*/("""</td>
+                    <td>"""),_display_(/*35.26*/p/*35.27*/.getName),format.raw/*35.35*/("""</td>
+                    <td class="numeric">&euro; """),_display_(/*36.49*/("%.2f".format(p.getPrice))),format.raw/*36.76*/("""</td>
+                    <td>
+                        <a href=""""),_display_(/*38.35*/routes/*38.41*/.HomeController.updateProduct(p.getId)),format.raw/*38.79*/("""" class="btn-xs btn-danger">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
 
-            </td>
-            <td>
-                <a href=""""),_display_(/*31.27*/routes/*31.33*/.HomeController.deleteProduct(p.getId)),format.raw/*31.71*/("""" class="btn-xs btn-danger"
-                    onclick="return confirmDel();">
-                    <span class="gylpicon glyphicon-trash"></span>
-                </a>
-            </td>
-                </a>
-            </td>
-        </tr>
-    """)))}),format.raw/*39.6*/("""
-    """),format.raw/*40.5*/("""<script>
-        function confirmDel()"""),format.raw/*41.30*/("""{"""),format.raw/*41.31*/("""
-            """),format.raw/*42.13*/("""return confirm('Are you sure?');
-        """),format.raw/*43.9*/("""}"""),format.raw/*43.10*/("""
-    """),format.raw/*44.5*/("""</script>
+                    </td>
+                    <td>
+                        <a href=""""),_display_(/*44.35*/routes/*44.41*/.HomeController.deleteProduct(p.getId)),format.raw/*44.79*/("""" class="btn-xs btn-danger"
+                        onclick="return confirmDel();">
+                            <span class="gylpicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                    </a>
+                    </td>
+                </tr>
+            """)))}),format.raw/*52.14*/("""
+            """),format.raw/*53.13*/("""<script>
+                    function confirmDel()"""),format.raw/*54.42*/("""{"""),format.raw/*54.43*/("""
+                        """),format.raw/*55.25*/("""return confirm('Are you sure?');
+                    """),format.raw/*56.21*/("""}"""),format.raw/*56.22*/("""
+            """),format.raw/*57.13*/("""</script>
+        </div>
+        <div class="col-md-1">
+
+        </div>
     </div>
-    <div class="col-md-2">
 
-    </div>
-
-""")))}),format.raw/*50.2*/("""
+""")))}),format.raw/*64.2*/("""
 """))
       }
     }
@@ -99,11 +113,11 @@ Seq[Any](format.raw/*1.69*/("""
 object prod extends prod_Scope0.prod
               /*
                   -- GENERATED --
-                  DATE: Mon Dec 12 14:57:50 GMT 2016
-                  SOURCE: /home/wdd/webapps/webca/app/views/prod.scala.html
-                  HASH: c4f6e8600136fde4c40d46d3d98e6bea115494b6
-                  MATRIX: 779->1|941->68|968->70|992->86|1030->87|1061->92|1165->170|1179->176|1222->199|1310->261|1345->281|1384->283|1432->304|1487->333|1496->334|1524->342|1572->363|1619->384|1628->385|1667->404|1749->455|1785->464|1861->514|1902->546|1941->547|1977->556|2047->599|2061->604|2097->619|2133->628|2175->640|2207->646|2241->664|2280->665|2316->674|2381->712|2391->713|2418->719|2468->742|2478->743|2507->751|2580->797|2628->824|2704->873|2719->879|2778->917|2982->1094|2997->1100|3056->1138|3330->1382|3362->1387|3428->1425|3457->1426|3498->1439|3566->1480|3595->1481|3627->1486|3719->1548
-                  LINES: 27->1|32->1|33->2|33->2|33->2|34->3|36->5|36->5|36->5|37->6|37->6|37->6|38->7|38->7|38->7|38->7|39->8|39->8|39->8|39->8|41->10|42->11|45->14|45->14|45->14|46->15|47->16|47->16|47->16|48->17|49->18|50->19|50->19|50->19|51->20|52->21|52->21|52->21|53->22|53->22|53->22|54->23|54->23|56->25|56->25|56->25|62->31|62->31|62->31|70->39|71->40|72->41|72->41|73->42|74->43|74->43|75->44|81->50
+                  DATE: Mon Dec 12 22:57:17 GMT 2016
+                  SOURCE: /home/wdd/webapps/thing/webca/app/views/prod.scala.html
+                  HASH: 45c4cb7bc7c016e937b9d2c0bc0cc2d6791b9e3c
+                  MATRIX: 779->1|941->68|968->70|992->86|1030->87|1061->92|1305->310|1319->316|1362->339|1455->405|1491->425|1531->427|1584->452|1640->481|1650->482|1679->490|1732->515|1780->536|1790->537|1830->556|1920->615|1965->632|2243->883|2284->915|2323->916|2368->933|2446->984|2460->989|2496->1004|2541->1021|2592->1041|2633->1055|2667->1073|2706->1074|2751->1091|2824->1137|2834->1138|2861->1144|2919->1175|2929->1176|2958->1184|3039->1238|3087->1265|3179->1330|3194->1336|3253->1374|3501->1595|3516->1601|3575->1639|3906->1939|3947->1952|4025->2002|4054->2003|4107->2028|4188->2081|4217->2082|4258->2095|4373->2180
+                  LINES: 27->1|32->1|33->2|33->2|33->2|34->3|40->9|40->9|40->9|41->10|41->10|41->10|42->11|42->11|42->11|42->11|43->12|43->12|43->12|43->12|45->14|46->15|58->27|58->27|58->27|59->28|60->29|60->29|60->29|61->30|62->31|63->32|63->32|63->32|64->33|65->34|65->34|65->34|66->35|66->35|66->35|67->36|67->36|69->38|69->38|69->38|75->44|75->44|75->44|83->52|84->53|85->54|85->54|86->55|87->56|87->56|88->57|95->64
                   -- GENERATED --
               */
           
