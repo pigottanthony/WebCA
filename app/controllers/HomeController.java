@@ -35,10 +35,18 @@ public class HomeController extends Controller {
 	public Result signup(){
 		return ok(signup.render());
 	}
-	public Result prod(){
+	public Result prod(Long cat){
 
-		List<Product> productsList = Product.findAll();
-		return ok(prod.render(productsList));
+		List<Product> productsList = new ArrayList<Product>();
+		List<Category> categoriesList = Category.findAll();
+
+		if(cat == 0){
+			productsList = Product.findAll();
+		}
+		else{
+			productsList = Category.find.ref(cat).getProducts();
+		}
+		return ok(prod.render(productsList, categoriesList));
 	}
 	public Result cart(){
 		return ok(cart.render());
@@ -60,13 +68,32 @@ public class HomeController extends Controller {
             return badRequest(addProduct.render(newProductForm));
         }
         Product newProduct = newProductForm.get();
+		Product p = newProductForm.get();
+		if(p.getId() == null){
+			p.save();
+		}
+		else if(p.getId() != null){
+			p.update();
+		}
         newProduct.save();
         flash("success", "Product " + newProduct.getName() + " has been created!");
-        return redirect(controllers.routes.HomeController.prod());
+        return redirect(controllers.routes.HomeController.prod(0));
     }
     public Result deleteProduct(Long id){
         Product.find.ref(id).delete();
         flash("success","Product has been deleted");
-        return redirect(routes.HomeController.prod());
+        return redirect(routes.HomeController.prod(0));
     }
+    @Transactional
+	public Result updateProduct(Long id){
+		Product p;
+		Form<Product> productForm;
+		try{
+			p = Product.find.byId(id);
+			productForm = formFactory.form(Product.class).fill(p);
+		}catch (Exception ex){
+			return badRequest("error");
+		}
+		return ok(addProduct.render(productForm));
+	}
 }

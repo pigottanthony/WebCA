@@ -9,9 +9,17 @@
             </div>
             @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role ->"form"){
                 @inputText(addProductForm("name"), '_label -> "Name:", 'class -> "form-control")
+                @select(
+                    addProductForm("category.id"),
+                    options(Category.options),
+                    '_label -> "Category", '_default -> "-- Choose a category --",
+                    '_showConstraints -> false, 'class -> "form-control"
+                )
                 @inputText(addProductForm("description"), '_label -> "Description:", 'class -> "form-control")
                 @inputText(addProductForm("stock"), '_label -> "Units:", 'class -> "form-control")
                 @inputText(addProductForm("price"), '_label -> "Price:", 'class -> "form-control")
+
+                @inputText(addProductForm("id"), '_label -> "", 'hidden -> "hidden")
 
                 <div class="actions">
                     <input type="submit" value="Add Product" class="btn btn-primary">

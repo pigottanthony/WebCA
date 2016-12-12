@@ -37,10 +37,10 @@
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
-							<li @if(title == "Home"){ class="active";}><a href="/">Home</a></li>
-							<li @if(title == "Products"){ class="active";}><a href="/prod">Products</a></li>
-							<li @if(title == "About"){ class="active" ;}><a href="/about">About</a></li>
-							<li @if(title == "Contact"){ class="active" ;}><a href="/contact">Contact Us</a></li>
+							<li @if(title == "Home"){ class="active";}><a href="@routes.HomeController.index()">Home</a></li>
+							<li @if(title == "Products"){ class="active";}><a href="@routes.HomeController.prod()">Products</a></li>
+							<li @if(title == "About"){ class="active" ;}><a href="@routes.HomeController.about()">About</a></li>
+							<li @if(title == "Contact"){ class="active" ;}><a href="@routes.HomeController.contact()">Contact Us</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<!--<li @if(title == "Sign Up"){ class="active" ;}><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -57,14 +57,14 @@
 	</div>
 	<div class="row">
 		<div class="container">
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-8">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
 				@content
-			</div>
-			<div class="col-md-2">
-			</div>
-		</div>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
 	</div>
 	</br>
 	<div class="row">
@@ -74,9 +74,7 @@
 			<div class="col-md-10">
 				<div class="col-md-12">
 					<div class="panel-body">
-						
-							&copy 2016 SKAS Clothing Inc. 
-						
+							&copy 2016 SKAS Clothing Inc.
 						<div class="footersocial">
 							<a href="https://twitter.com/SKASClothing" class="twitter-follow-button" data-show-count="false">Follow SKASClothing</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>

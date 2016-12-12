@@ -16,6 +16,9 @@ public class Product extends Model{
     @Constraints.Required
     private String name;
 
+    @ManyToOne
+    private Category category;
+
     @Constraints.Required
     private String description;
 

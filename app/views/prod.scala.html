@@ -1,7 +1,18 @@
-@(products: List[models.Product])
+@(products: List[models.Product], categories: List[models.Category])
 @main("Products"){
+    <div class="col-md-2">
+        <div class="list-group">
+            <a href="@routes.HomeController.prod(0)" class="list-group-item">All Categories</a>
+                @for(c <- categories) {
+                    <li class="list-group-item">@c.getName
+                    <span class="badge">@c.getProducts.size()</span>
+                    </li>
+                }
+        </div>
+    </div>
+    <div class="col-md=8">
     @if(flash.containsKey("success")){
-        <div class=""alert alert-success">
+        <div class="alert alert-success">
         @flash.get("success")
         </div>
     }
@@ -11,11 +22,17 @@
             <td>@p.getName</td>
             <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
             <td>
+                <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+                <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+
+            </td>
+            <td>
                 <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
-                onclick="return confirmDel();">
+                    onclick="return confirmDel();">
                     <span class="gylpicon glyphicon-trash"></span>
-                    </a>
-                </td>
+                </a>
+            </td>
                 </a>
             </td>
         </tr>
@@ -25,4 +42,9 @@
             return confirm('Are you sure?');
         }
     </script>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
 }

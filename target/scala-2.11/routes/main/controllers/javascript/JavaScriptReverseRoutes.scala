@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/webca/conf/routes
-// @DATE:Fri Dec 09 15:23:07 GMT 2016
+// @DATE:Mon Dec 12 13:51:00 GMT 2016
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,7 +15,7 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:21
+  // @LINE:22
   class ReverseAsyncController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,7 +23,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.message",
       """
@@ -93,6 +93,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:17
+    def updateProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.updateProduct",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "updateProduct/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+        }
+      """
+    )
+  
     // @LINE:12
     def account: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.account",
@@ -103,22 +113,22 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:10
+    def prod: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.prod",
+      """
+        function(cat0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "prod" + _qS([(cat0 == null ? null : (""" + implicitly[QueryStringBindable[Long]].javascriptUnbind + """)("cat", cat0))])})
+        }
+      """
+    )
+  
     // @LINE:14
     def addProduct: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.addProduct",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "addProduct"})
-        }
-      """
-    )
-  
-    // @LINE:10
-    def prod: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.prod",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "prod"})
         }
       """
     )
@@ -155,7 +165,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:25
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -163,7 +173,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:26
+    // @LINE:27
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -173,7 +183,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:24
+    // @LINE:25
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -185,7 +195,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:19
+  // @LINE:20
   class ReverseCountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -193,7 +203,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:20
     def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CountController.count",
       """
