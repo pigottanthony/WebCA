@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/wdd/webapps/thing/webca/conf/routes
-// @DATE:Mon Dec 12 22:46:54 GMT 2016
+// @SOURCE:/home/wdd/webapps/webca/conf/routes
+// @DATE:Wed Dec 14 11:19:20 GMT 2016
 
 package controllers;
 

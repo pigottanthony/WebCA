@@ -38,5 +38,15 @@ header{
 }
 
 .container{
-  min-height:52em;
+  min-height:32.5em;
+}
+
+.ProdListItem{
+    padding:.5em;
+
+}
+
+.prodImage{
+    max-height:50px;
+    min-height:50px;
 }

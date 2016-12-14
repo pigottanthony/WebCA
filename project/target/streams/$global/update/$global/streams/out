@@ -1,4 +1,4 @@
-[info] Updating {file:/home/wdd/webapps/thing/webca/project/}webca-build...
+[info] Updating {file:/home/wdd/webapps/webca/project/}webca-build...
 [debug] :: resolving dependencies :: default#webca-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -13858,19 +13858,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.11!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 4190ms :: artifacts dl 150ms
-[debug] 	report for default#webca-build;0.1-SNAPSHOT compile produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-compile.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT runtime produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-runtime.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT test produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-test.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT provided produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-provided.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT optional produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-optional.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT compile-internal produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-compile-internal.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT runtime-internal produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-runtime-internal.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT test-internal produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-test-internal.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT plugin produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-plugin.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT sources produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-sources.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT docs produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-docs.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT pom produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-pom.xml
-[debug] 	report for default#webca-build;0.1-SNAPSHOT scala-tool produced in /home/wdd/webapps/thing/webca/project/target/resolution-cache/reports/default-webca-build-scala-tool.xml
-[debug] 	resolve done (4190ms resolve - 150ms download)
+[debug] :: resolution report :: resolve 5056ms :: artifacts dl 117ms
+[debug] 	report for default#webca-build;0.1-SNAPSHOT compile produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-compile.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT runtime produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-runtime.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT test produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-test.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT provided produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-provided.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT optional produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-optional.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT compile-internal produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-compile-internal.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT runtime-internal produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-runtime-internal.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT test-internal produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-test-internal.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT plugin produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-plugin.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT sources produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-sources.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT docs produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-docs.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT pom produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-pom.xml
+[debug] 	report for default#webca-build;0.1-SNAPSHOT scala-tool produced in /home/wdd/webapps/webca/project/target/resolution-cache/reports/default-webca-build-scala-tool.xml
+[debug] 	resolve done (5056ms resolve - 117ms download)
 [info] Done updating.

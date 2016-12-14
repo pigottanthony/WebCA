@@ -58,8 +58,8 @@ Seq[Any](_display_(/*1.2*/main("checkout")/*1.18*/{_display_(Seq[Any](format.raw
 object checkout extends checkout_Scope0.checkout
               /*
                   -- GENERATED --
-                  DATE: Mon Dec 12 22:55:11 GMT 2016
-                  SOURCE: /home/wdd/webapps/thing/webca/app/views/checkout.scala.html
+                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  SOURCE: /home/wdd/webapps/webca/app/views/checkout.scala.html
                   HASH: d04ba0eea69740bb9862ff6454f59fbdf0bbf9e9
                   MATRIX: 833->1|857->17|895->18|926->23|1032->100
                   LINES: 32->1|32->1|32->1|33->2|40->9

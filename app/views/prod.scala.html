@@ -29,27 +29,31 @@
                 @flash.get("success")
                 </div>
             }
-            @for(p <- products){
-                <tr>
-                    <td class="numeric">@p.getId</td>
-                    <td>@p.getName</td>
-                    <td class="numeric">&euro; @("%.2f".format(p.getPrice))</td>
-                    <td>
-                        <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
-                            <span class="glyphicon glyphicon-pencil"></span>
-                        </a>
+            <table>
+                @for(p <- products){
+                    <tr class="ProdListItem">
+                        <td class="prodImage"><img src="http://lorempixel.com/output/animals-q-g-1900-500-6.jpg"></td>
+                        <td class="numeric">@p.getId</td>
+                        <td>@p.getName </td>
+                        <td class="numeric">&euro;@("%.2f".format(p.getPrice))</td>
+                        <td>
+                            <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
 
-                    </td>
-                    <td>
-                        <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
-                        onclick="return confirmDel();">
-                            <span class="gylpicon glyphicon-trash"></span>
+                        </td>
+                        <td>
+                            <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
+                            onclick="return confirmDel();">
+                                <span class="gylpicon glyphicon-trash"></span>
+                            </a>
+                        </td>
                         </a>
-                    </td>
-                    </a>
-                    </td>
-                </tr>
-            }
+                        </td>
+                        </br>
+                    </tr>
+                }
+            </table>
             <script>
                     function confirmDel(){
                         return confirm('Are you sure?');

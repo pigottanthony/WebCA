@@ -119,8 +119,8 @@ Seq[Any](_display_(/*1.2*/main("Contact")/*1.17*/{_display_(Seq[Any](format.raw/
 object contact extends contact_Scope0.contact
               /*
                   -- GENERATED --
-                  DATE: Mon Dec 12 22:55:11 GMT 2016
-                  SOURCE: /home/wdd/webapps/thing/webca/app/views/contact.scala.html
+                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  SOURCE: /home/wdd/webapps/webca/app/views/contact.scala.html
                   HASH: 65133e3e72d7f90075c30d6062b4a461f9be9769
                   MATRIX: 831->1|854->16|892->17|923->22|3514->2583
                   LINES: 32->1|32->1|32->1|33->2|101->70

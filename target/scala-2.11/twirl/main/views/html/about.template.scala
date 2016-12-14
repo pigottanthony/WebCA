@@ -67,8 +67,8 @@ Seq[Any](_display_(/*1.2*/main("About")/*1.15*/{_display_(Seq[Any](format.raw/*1
 object about extends about_Scope0.about
               /*
                   -- GENERATED --
-                  DATE: Mon Dec 12 22:55:11 GMT 2016
-                  SOURCE: /home/wdd/webapps/thing/webca/app/views/about.scala.html
+                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  SOURCE: /home/wdd/webapps/webca/app/views/about.scala.html
                   HASH: 5243704bcdaedfccf67b950763a1a1c3cd0e5049
                   MATRIX: 827->1|848->14|886->15|917->20|2457->1530
                   LINES: 32->1|32->1|32->1|33->2|49->18
