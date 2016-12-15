@@ -10,6 +10,17 @@ create table category (
 );
 create sequence category_seq;
 
+create table contact (
+  id                            bigint not null,
+  fname                         varchar(255),
+  lname                         varchar(255),
+  email                         varchar(255),
+  subject                       varchar(255),
+  comment                       varchar(255),
+  constraint pk_contact primary key (id)
+);
+create sequence contact_seq;
+
 create table product (
   id                            bigint not null,
   name                          varchar(255),
@@ -32,6 +43,9 @@ drop index if exists ix_product_category_id;
 
 drop table if exists category;
 drop sequence if exists category_seq;
+
+drop table if exists contact;
+drop sequence if exists contact_seq;
 
 drop table if exists product;
 drop sequence if exists product_seq;

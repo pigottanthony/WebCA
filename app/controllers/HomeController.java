@@ -29,12 +29,13 @@ public class HomeController extends Controller {
 	public Result about(){
 		return ok(about.render());
 	}
-	public Result contact(){
-		return ok(contact.render());
-	}
 	public Result signup(){
 		return ok(signup.render());
 	}
+	public Result feedback(){
+        List<Contact> contactList = new ArrayList<Contact>();
+        return ok(feedback.render(contactList));
+    }
 	public Result prod(Long cat){
 
 		List<Product> productsList = new ArrayList<Product>();
@@ -61,6 +62,10 @@ public class HomeController extends Controller {
         Form<Product> addProductForm = formFactory.form(Product.class);
         return ok(addProduct.render(addProductForm));
     }
+    public Result contact(){
+        Form<Contact> newContactForm = formFactory.form(Contact.class);
+        return ok(contact.render(newContactForm));
+    }
     public Result addProductSubmit(){
         Form<Product> newProductForm = formFactory.form(Product.class).bindFromRequest();
 
@@ -79,11 +84,32 @@ public class HomeController extends Controller {
         flash("success", "Product " + newProduct.getName() + " has been created!");
         return redirect(controllers.routes.HomeController.prod(0));
     }
+
+    public Result contactSubmit(){
+        Form<Contact> newContactForm = formFactory.form(Contact.class).bindFromRequest();
+
+        if(newContactForm.hasErrors()){
+            return badRequest(contact.render(newContactForm));
+        }
+        Contact newContact = newContactForm.get();
+        Contact c = newContactForm.get();
+        if(c.getId() == null){
+            c.save();
+        }
+        newContact.save();
+        flash("success", "Thank you! We'll get back to you as soon as possible!");
+        return redirect(controllers.routes.HomeController.index());
+    }
     public Result deleteProduct(Long id){
         Product.find.ref(id).delete();
         flash("success","Product has been deleted");
         return redirect(routes.HomeController.prod(0));
     }
+/*    public Result deleteFeedback(Long id){
+        Contact.find.ref(id).delete();
+        flash("success", "Feedback")
+    }
+*/
     @Transactional
 	public Result updateProduct(Long id){
 		Product p;
@@ -96,4 +122,9 @@ public class HomeController extends Controller {
 		}
 		return ok(addProduct.render(productForm));
 	}
+
+	public Result contacts(){
+        List<Contact> contactsList = Contact.findAll();
+        return ok(feedback.render(contactsList));
+    }
 }

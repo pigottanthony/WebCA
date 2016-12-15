@@ -33,7 +33,12 @@ Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.
     """),format.raw/*2.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
-    <div class="container-fluid">
+        """),_display_(/*5.10*/if(flash.containsKey("success"))/*5.42*/{_display_(Seq[Any](format.raw/*5.43*/("""
+            """),format.raw/*6.13*/("""<div class="alert alert-success">
+            """),_display_(/*7.14*/flash/*7.19*/.get("success")),format.raw/*7.34*/("""
+            """),format.raw/*8.13*/("""</div>
+        """)))}),format.raw/*9.10*/("""
+    """),format.raw/*10.5*/("""<div class="container-fluid">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -126,7 +131,7 @@ Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.
     </div>
     </div>
     </div>
-""")))}),format.raw/*98.2*/("""
+""")))}),format.raw/*103.2*/("""
 """))
       }
     }
@@ -147,11 +152,11 @@ Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  DATE: Thu Dec 15 16:40:29 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/index.scala.html
-                  HASH: 765d720bf62f3de16ad17e61a564ddffc5a5f6a3
-                  MATRIX: 827->1|847->13|885->14|917->20|4974->4047
-                  LINES: 32->1|32->1|32->1|33->2|129->98
+                  HASH: 2054f95a6d6547d119ee8a1469d692b6004a2da6
+                  MATRIX: 827->1|847->13|885->14|917->20|1017->94|1057->126|1095->127|1136->141|1210->189|1223->194|1258->209|1299->223|1346->240|1379->246|5368->4204
+                  LINES: 32->1|32->1|32->1|33->2|36->5|36->5|36->5|37->6|38->7|38->7|38->7|39->8|40->9|41->10|134->103
                   -- GENERATED --
               */
           

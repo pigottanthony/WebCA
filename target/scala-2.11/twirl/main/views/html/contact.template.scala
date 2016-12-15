@@ -21,92 +21,56 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class contact extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+     object contact_Scope1 {
+import helper._
+
+class contact extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[Form[models.Contact],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(addContactForm: Form[models.Contact]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*1.2*/main("Contact")/*1.17*/{_display_(Seq[Any](format.raw/*1.18*/("""
-    """),format.raw/*2.5*/("""<div class="col-md-2">
+Seq[Any](format.raw/*2.40*/("""
+"""),_display_(/*3.2*/main("Contact")/*3.17*/{_display_(Seq[Any](format.raw/*3.18*/("""
+
+
+    """),format.raw/*6.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
-          <div class="text-center">
-          <h2>Contact Us</h2>
-            <h4 class="contacthead">Have a problem? Please fill in the online customer service form below for a quick response.</h4>
-            <!--<h4 class="contacthead">Is it urgent? Contact us directly:</br></h4><h5> Phone: 01-4578964 </br> Email: info_[BRANDNAME].ie</h5>
-            <h5>Available: </br> 09:00 - 17:00	 Monday to Friday </br> 10:00 - 16:00 Saturday & Sunday</h5>  -->
-          </div>
-        <form class="form-horizontal">
-        <fieldset>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <h4>Have a problem? Please fill in the online customer service form below for a quick response.</h4>
+                </div>
+                """),_display_(/*14.18*/form(action = routes.HomeController.contactSubmit(), 'class -> "form-horizontal", 'role ->"form")/*14.115*/{_display_(Seq[Any](format.raw/*14.116*/("""
+                    """),_display_(/*15.22*/inputText(addContactForm("fname"), '_label -> "First Name:", 'class -> "form-control")),format.raw/*15.108*/("""
+                    """),_display_(/*16.22*/inputText(addContactForm("lname"), '_label -> "Last Name:", 'class -> "form-control")),format.raw/*16.107*/("""
+                    """),_display_(/*17.22*/inputText(addContactForm("email"), '_label -> "Email:", 'class -> "form-control")),format.raw/*17.103*/("""
+                    """),_display_(/*18.22*/inputText(addContactForm("subject"), '_label -> "Subject:", 'class -> "form-control")),format.raw/*18.107*/("""
+                    """),_display_(/*19.22*/inputText(addContactForm("comment"), '_label -> "Comment:", 'class -> "form-control")),format.raw/*19.107*/("""
+                    """),_display_(/*20.22*/inputText(addContactForm("id"), '_label -> "", 'hidden -> "hidden")),format.raw/*20.89*/("""
 
-
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">First Name</label>
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-          </div>
+                    """),format.raw/*22.21*/("""<div class="actions">
+                        <input type="submit" value="Add Feedback" class="btn btn-primary">
+                        <a href=""""),_display_(/*24.35*/routes/*24.41*/.HomeController.index()),format.raw/*24.64*/(""""
+                        <button class="btn btn-warning">Cancel</button>
+                        </a>
+                    </div>
+                """)))}),format.raw/*28.18*/("""
+            """),format.raw/*29.13*/("""</div>
         </div>
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Last Name</label>
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Your Email</label>
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textinput">Subject</label>
-          <div class="col-md-4">
-          <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required>
-
-          </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="textarea">Comment</label>
-          <div class="col-md-4">
-            <textarea class="form-control" id="textarea" name="textarea" required></textarea>
-          </div>
-        </div>
-
-        <!-- Button -->
-        <div class="text-center">
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="singlebutton"></label>
-          <div class="col-md-4">
-            <button id="singlebutton" name="singlebutton" class="btn btn-success">Submit </button>
-          </div>
-        </div>
-        </div>
-
-        </fieldset>
-        </form>
     </div>
-
-""")))}),format.raw/*70.2*/("""
+""")))}),format.raw/*32.2*/("""
 """))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(addContactForm:Form[models.Contact]): play.twirl.api.HtmlFormat.Appendable = apply(addContactForm)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((Form[models.Contact]) => play.twirl.api.HtmlFormat.Appendable) = (addContactForm) => apply(addContactForm)
 
   def ref: this.type = this
 
@@ -114,16 +78,17 @@ Seq[Any](_display_(/*1.2*/main("Contact")/*1.17*/{_display_(Seq[Any](format.raw/
 
 
 }
+}
 
 /**/
-object contact extends contact_Scope0.contact
+object contact extends contact_Scope0.contact_Scope1.contact
               /*
                   -- GENERATED --
-                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  DATE: Thu Dec 15 16:36:27 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/contact.scala.html
-                  HASH: 65133e3e72d7f90075c30d6062b4a461f9be9769
-                  MATRIX: 831->1|854->16|892->17|923->22|3514->2583
-                  LINES: 32->1|32->1|32->1|33->2|101->70
+                  HASH: e0ece32d181db70fb8faa8be97dc1e2e5440be73
+                  MATRIX: 809->18|942->56|969->58|992->73|1030->74|1063->81|1406->397|1513->494|1553->495|1602->517|1710->603|1759->625|1866->710|1915->732|2018->813|2067->835|2174->920|2223->942|2330->1027|2379->1049|2467->1116|2517->1138|2691->1285|2706->1291|2750->1314|2928->1461|2969->1474|3033->1508
+                  LINES: 30->2|35->2|36->3|36->3|36->3|39->6|47->14|47->14|47->14|48->15|48->15|49->16|49->16|50->17|50->17|51->18|51->18|52->19|52->19|53->20|53->20|55->22|57->24|57->24|57->24|61->28|62->29|65->32
                   -- GENERATED --
               */
           

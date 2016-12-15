@@ -28,7 +28,7 @@
                 </div>
             }
 
-
+            <!--<img src='/assets/images/productImages/ [at]p.getId + ".jpg"'> -->
             @for(p <-products){
                 <div class="row">
                     <div class="prodItem">
@@ -61,7 +61,7 @@
                         @if(p.getStock == 0){
                             <span class="stockMsg">Sorry, out of stock!</span>
                         }else{
-                            <span style="margin-top:0.5em;">
+                            <span style="padding-top:0.5em;">
                                 <input type="submit" value="Buy" class="btn btn-primary">
                             </span>
                         }

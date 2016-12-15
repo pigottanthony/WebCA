@@ -2,6 +2,11 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-10">
+        @if(flash.containsKey("success")){
+            <div class="alert alert-success">
+            @flash.get("success")
+            </div>
+        }
     <div class="container-fluid">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
