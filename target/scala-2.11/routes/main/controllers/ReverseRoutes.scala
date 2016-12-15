@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/webca/conf/routes
-// @DATE:Thu Dec 15 15:48:26 GMT 2016
+// @DATE:Thu Dec 15 21:21:23 GMT 2016
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -13,14 +13,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:24
+  // @LINE:25
   class ReverseAsyncController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:24
+    // @LINE:25
     def message(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "message")
@@ -95,6 +95,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addProduct")
     }
   
+    // @LINE:20
+    def buy(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "buy")
+    }
+  
     // @LINE:19
     def contactSubmit(): Call = {
       import ReverseRouteContext.empty
@@ -102,9 +108,9 @@ package controllers {
     }
   
     // @LINE:13
-    def checkout(): Call = {
+    def checkout(id:Long = 0L): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "checkout")
+      Call("GET", _prefix + { _defaultPrefix } + "checkout" + queryString(List(if(id == 0L) None else Some(implicitly[QueryStringBindable[Long]].unbind("id", id)))))
     }
   
     // @LINE:6
@@ -121,20 +127,20 @@ package controllers {
   
   }
 
-  // @LINE:27
+  // @LINE:28
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:29
+    // @LINE:30
     def at(base:String): Call = {
       implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "public/base.css" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("base", base)))))
     }
   
-    // @LINE:27
+    // @LINE:28
     def versioned(file:Asset): Call = {
       implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[Asset]].unbind("file", file))
@@ -142,14 +148,14 @@ package controllers {
   
   }
 
-  // @LINE:22
+  // @LINE:23
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:22
+    // @LINE:23
     def count(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "count")

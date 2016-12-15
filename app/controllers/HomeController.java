@@ -55,9 +55,6 @@ public class HomeController extends Controller {
 	public Result account(){
 		return ok(account.render());
 	}
-	public Result checkout(){
-		return ok(checkout.render());
-	}
     public Result addProduct(){
         Form<Product> addProductForm = formFactory.form(Product.class);
         return ok(addProduct.render(addProductForm));
@@ -126,5 +123,15 @@ public class HomeController extends Controller {
 	public Result contacts(){
         List<Contact> contactsList = Contact.findAll();
         return ok(feedback.render(contactsList));
+    }
+
+    public Result checkout(Long id){
+        Product p = Product.find.ref(id);
+        return ok(checkout.render(p));
+    }
+
+    public Result buy(){
+        flash("bought", "Thank you! Purchase successful");
+        return redirect(controllers.routes.HomeController.index());
     }
 }

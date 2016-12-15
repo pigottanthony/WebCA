@@ -23,22 +23,27 @@ import play.mvc.Http.Context.Implicit._
 
 class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
 
-  /**/
+  /* @(products: List[models.Product]) */
   def apply():play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.15*/("""
-    """),format.raw/*2.5*/("""<div class="col-md-2">
+Seq[Any](_display_(/*2.2*/main("Home")/*2.14*/{_display_(Seq[Any](format.raw/*2.15*/("""
+    """),format.raw/*3.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
-        """),_display_(/*5.10*/if(flash.containsKey("success"))/*5.42*/{_display_(Seq[Any](format.raw/*5.43*/("""
-            """),format.raw/*6.13*/("""<div class="alert alert-success">
-            """),_display_(/*7.14*/flash/*7.19*/.get("success")),format.raw/*7.34*/("""
-            """),format.raw/*8.13*/("""</div>
-        """)))}),format.raw/*9.10*/("""
-    """),format.raw/*10.5*/("""<div class="container-fluid">
+        """),_display_(/*6.10*/if(flash.containsKey("success"))/*6.42*/{_display_(Seq[Any](format.raw/*6.43*/("""
+            """),format.raw/*7.13*/("""<div class="alert alert-success">
+            """),_display_(/*8.14*/flash/*8.19*/.get("success")),format.raw/*8.34*/("""
+            """),format.raw/*9.13*/("""</div>
+        """)))}),format.raw/*10.10*/("""
+        """),_display_(/*11.10*/if(flash.containsKey("bought"))/*11.41*/{_display_(Seq[Any](format.raw/*11.42*/("""
+            """),format.raw/*12.13*/("""<div class="alert alert-success">
+            """),_display_(/*13.14*/flash/*13.19*/.get("bought")),format.raw/*13.33*/("""
+            """),format.raw/*14.13*/("""</div>
+        """)))}),format.raw/*15.10*/("""
+    """),format.raw/*16.5*/("""<div class="container-fluid">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -75,63 +80,17 @@ Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.
           <span class="sr-only">Next</span>
         </a>
       </div>
+
+
       <h4 style="text-align:Center">FEATURED</h4>
-        <div class="row">
-        <div class="col-md-4">
-            <div class="row">
-                <div class="text-center">
-                    <div class="col-md-1">
-                    </div>
-                    <div class="col-md-10">
-                        <div class="img">
-                            <img src='http://lorempixel.com/output/technics-h-g-300-400-6.jpg' class="img-responsive" style="width:100%; max-height:300px;"alt="Image">
-                        </div>
-                        <div class="Description">Buy headphones</div>
-                        <div class="price">$5,000,000</div>
-                    </div>
-                    <div class="col-md-1">
-                    </div>
+           """),format.raw/*56.38*/("""
+                """),format.raw/*57.17*/("""<div class="row">
+
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-                <div class="text-center">
-                    <div class="col-md-1">
-                    </div>
-                    <div class="col-md-10">
-                        <div class="img">
-                            <img src="http://lorempixel.com/output/technics-h-g-300-400-6.jpg" class="img-responsive" style="width:100%" alt="Image">
-                        </div>
-                        <div class="Description">Buy headphones</div>
-                        <div class="price">$5,000,000</div>
-                    </div>
-                    <div class="col-md-1">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row">
-                <div class="text-center">
-                    <div class="col-md-1">
-                    </div>
-                    <div class="col-md-10">
-                        <div class="img">
-                            <img src="http://lorempixel.com/output/technics-h-g-300-400-6.jpg" class="img-responsive" style="width:100%" alt="Image">
-                        </div>
-                        <div class="Description">Buy headphones</div>
-                        <div class="price">$5,000,000</div>
-                    </div>
-                    <div class="col-md-1">
-                    </div>
-                </div>
-            </div>
-        </div>
+           """),format.raw/*60.19*/("""
+    """),format.raw/*61.5*/("""</div>
     </div>
-    </div>
-    </div>
-""")))}),format.raw/*103.2*/("""
+""")))}),format.raw/*63.2*/("""
 """))
       }
     }
@@ -148,15 +107,15 @@ Seq[Any](_display_(/*1.2*/main("Home")/*1.14*/{_display_(Seq[Any](format.raw/*1.
 
 }
 
-/**/
+/* @(products: List[models.Product]) */
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 15 16:40:29 GMT 2016
+                  DATE: Thu Dec 15 20:41:10 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/index.scala.html
-                  HASH: 2054f95a6d6547d119ee8a1469d692b6004a2da6
-                  MATRIX: 827->1|847->13|885->14|917->20|1017->94|1057->126|1095->127|1136->141|1210->189|1223->194|1258->209|1299->223|1346->240|1379->246|5368->4204
-                  LINES: 32->1|32->1|32->1|33->2|36->5|36->5|36->5|37->6|38->7|38->7|38->7|39->8|40->9|41->10|134->103
+                  HASH: 25e2e91c82b7430256bf178fb7deceee15f25f90
+                  MATRIX: 862->42|882->54|920->55|952->61|1052->135|1092->167|1130->168|1171->182|1245->230|1258->235|1293->250|1334->264|1382->281|1420->292|1460->323|1499->324|1541->338|1616->386|1630->391|1665->405|1707->419|1755->436|1788->442|3484->2136|3530->2154|3614->2217|3647->2223|3698->2244
+                  LINES: 32->2|32->2|32->2|33->3|36->6|36->6|36->6|37->7|38->8|38->8|38->8|39->9|40->10|41->11|41->11|41->11|42->12|43->13|43->13|43->13|44->14|45->15|46->16|86->56|87->57|90->60|91->61|93->63
                   -- GENERATED --
               */
           

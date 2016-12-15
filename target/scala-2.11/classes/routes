@@ -10,13 +10,14 @@ GET 	/signup				controllers.HomeController.signup
 GET 	/prod				controllers.HomeController.prod(cat:Long ?=0L)
 GET	    /cart				controllers.HomeController.cart
 GET	    /account			controllers.HomeController.account
-GET	    /checkout			controllers.HomeController.checkout
+GET	    /checkout			controllers.HomeController.checkout(id:Long ?=0L)
 GET     /addProduct        controllers.HomeController.addProduct
 POST     /addProductSubmit   controllers.HomeController.addProductSubmit
 GET      /delProduct/:id        controllers.HomeController.deleteProduct(id: Long)
 GET     /updateProduct/:id      controllers.HomeController.updateProduct(id: Long)
 GET       /feedback             controllers.HomeController.feedback
 POST    /contactSubmit          controllers.HomeController.contactSubmit
+GET     /buy                    controllers.HomeController.buy
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
