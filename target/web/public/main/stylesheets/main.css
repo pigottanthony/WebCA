@@ -41,12 +41,16 @@ header{
   min-height:32.5em;
 }
 
-.ProdListItem{
-    padding:.5em;
-
+.prodTitle{
+    font-size:1.5em;
+    font-style: bold;
 }
 
-.prodImage{
-    max-height:50px;
-    min-height:50px;
+.prodItem{
+    min-height:100px;
+}
+
+.prodItem{
+    border-bottom:.5px solid grey;
+    padding:2px 0 2px 0;
 }
