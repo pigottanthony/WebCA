@@ -1,7 +1,6 @@
 @import helper._
-@(addProductForm: Form[models.Product])
-
-@main("addProduct"){
+@(addProductForm: Form[models.Product], user: models.users.User)
+@main("addProduct", user){
     <div class="col-md-2">
     </div>
     <div class="col-md-10">

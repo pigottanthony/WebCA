@@ -1,5 +1,5 @@
-@(contacts: List[models.Contact])
-@main("Admin"){
+@(contacts: List[models.Contact], user: models.users.User)
+@main("Admin", user){
    @for(c <- contacts){
        <h3>iebuoagia</h3>
    }

@@ -21,16 +21,17 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class about extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+class about extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply():play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*1.2*/main("About")/*1.15*/{_display_(Seq[Any](format.raw/*1.16*/("""
-    """),format.raw/*2.5*/("""<div class="col-md-2">
+Seq[Any](format.raw/*1.27*/("""
+"""),_display_(/*2.2*/main("About", user)/*2.21*/{_display_(Seq[Any](format.raw/*2.22*/("""
+    """),format.raw/*3.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
        <div class="text-center">
@@ -46,15 +47,15 @@ Seq[Any](_display_(/*1.2*/main("About")/*1.15*/{_display_(Seq[Any](format.raw/*1
         the future will bring.</p>
         <p id="abouttext">With our online presence growing by the day 200,000+ fans combined from both Facebook and Twitter tuning in daily for news and updates and our monthly interactive competitions. <!--[SOMETHING ABOUT EXPANDING TO EUROPE AND AMERICA]--></p>
     </div>
-""")))}),format.raw/*18.2*/("""
+""")))}),format.raw/*19.2*/("""
 """))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
 
   def ref: this.type = this
 
@@ -67,11 +68,11 @@ Seq[Any](_display_(/*1.2*/main("About")/*1.15*/{_display_(Seq[Any](format.raw/*1
 object about extends about_Scope0.about
               /*
                   -- GENERATED --
-                  DATE: Wed Dec 14 11:19:20 GMT 2016
+                  DATE: Fri Dec 16 12:40:05 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/about.scala.html
-                  HASH: 5243704bcdaedfccf67b950763a1a1c3cd0e5049
-                  MATRIX: 827->1|848->14|886->15|917->20|2457->1530
-                  LINES: 32->1|32->1|32->1|33->2|49->18
+                  HASH: 206449b0bee9bfc594418d35608ffbe42c71ec0e
+                  MATRIX: 756->1|876->26|903->28|930->47|968->48|999->53|2539->1563
+                  LINES: 27->1|32->1|33->2|33->2|33->2|34->3|50->19
                   -- GENERATED --
               */
           

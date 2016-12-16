@@ -1,6 +1,6 @@
 @import helper._
-@(addContactForm: Form[models.Contact])
-@main("Contact"){
+@(addContactForm: Form[models.Contact], user: models.users.User)
+@main("Contact", user){
 
 
     <div class="col-md-2">

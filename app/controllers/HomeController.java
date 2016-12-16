@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import views.html.*;
 
+import models.users.*;
 import models.*;
 
 /**
@@ -25,16 +26,16 @@ public class HomeController extends Controller {
     public HomeController(FormFactory f) {
         this.formFactory = f;
     }
-	public Result index() {return ok(index.render());}
+	public Result index() {return ok(index.render(getUserFromSession()));}
 	public Result about(){
-		return ok(about.render());
+		return ok(about.render(getUserFromSession()));
 	}
 	public Result signup(){
-		return ok(signup.render());
+		return ok(signup.render(getUserFromSession()));
 	}
 	public Result feedback(){
         List<Contact> contactList = new ArrayList<Contact>();
-        return ok(feedback.render(contactList));
+        return ok(feedback.render(contactList, getUserFromSession()));
     }
 	public Result prod(Long cat){
 
@@ -47,27 +48,36 @@ public class HomeController extends Controller {
 		else{
 			productsList = Category.find.ref(cat).getProducts();
 		}
-		return ok(prod.render(productsList, categoriesList));
+		return ok(prod.render(productsList, categoriesList, getUserFromSession()));
 	}
+	@Security.Authenticated(Secured.class)
 	public Result cart(){
-		return ok(cart.render());
+		return ok(cart.render(getUserFromSession()));
 	}
+
+	@Security.Authenticated(Secured.class)
 	public Result account(){
-		return ok(account.render());
+		return ok(account.render(getUserFromSession()));
 	}
-    public Result addProduct(){
+
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+	public Result addProduct(){
         Form<Product> addProductForm = formFactory.form(Product.class);
-        return ok(addProduct.render(addProductForm));
+        return ok(addProduct.render(addProductForm, getUserFromSession()));
     }
+    @Security.Authenticated(Secured.class)
     public Result contact(){
         Form<Contact> newContactForm = formFactory.form(Contact.class);
-        return ok(contact.render(newContactForm));
+        return ok(contact.render(newContactForm, getUserFromSession()));
     }
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     public Result addProductSubmit(){
         Form<Product> newProductForm = formFactory.form(Product.class).bindFromRequest();
 
         if(newProductForm.hasErrors()){
-            return badRequest(addProduct.render(newProductForm));
+            return badRequest(addProduct.render(newProductForm, getUserFromSession()));
         }
         Product newProduct = newProductForm.get();
 		Product p = newProductForm.get();
@@ -82,11 +92,12 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.prod(0));
     }
 
+    @Security.Authenticated(Secured.class)
     public Result contactSubmit(){
         Form<Contact> newContactForm = formFactory.form(Contact.class).bindFromRequest();
 
         if(newContactForm.hasErrors()){
-            return badRequest(contact.render(newContactForm));
+            return badRequest(contact.render(newContactForm, getUserFromSession()));
         }
         Contact newContact = newContactForm.get();
         Contact c = newContactForm.get();
@@ -97,6 +108,9 @@ public class HomeController extends Controller {
         flash("success", "Thank you! We'll get back to you as soon as possible!");
         return redirect(controllers.routes.HomeController.index());
     }
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
     public Result deleteProduct(Long id){
         Product.find.ref(id).delete();
         flash("success","Product has been deleted");
@@ -107,6 +121,8 @@ public class HomeController extends Controller {
         flash("success", "Feedback")
     }
 */
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
     @Transactional
 	public Result updateProduct(Long id){
 		Product p;
@@ -117,21 +133,26 @@ public class HomeController extends Controller {
 		}catch (Exception ex){
 			return badRequest("error");
 		}
-		return ok(addProduct.render(productForm));
+		return ok(addProduct.render(productForm, getUserFromSession()));
 	}
-
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
 	public Result contacts(){
         List<Contact> contactsList = Contact.findAll();
-        return ok(feedback.render(contactsList));
+        return ok(feedback.render(contactsList, getUserFromSession()));
     }
 
     public Result checkout(Long id){
         Product p = Product.find.ref(id);
-        return ok(checkout.render(p));
+        return ok(checkout.render(getUserFromSession(), p));
     }
 
     public Result buy(){
         flash("bought", "Thank you! Purchase successful");
         return redirect(controllers.routes.HomeController.index());
+    }
+
+    private User getUserFromSession(){
+        return User.getUserById(session().get("username"));
     }
 }

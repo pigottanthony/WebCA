@@ -24,16 +24,16 @@ import play.mvc.Http.Context.Implicit._
      object contact_Scope1 {
 import helper._
 
-class contact extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[Form[models.Contact],play.twirl.api.HtmlFormat.Appendable] {
+class contact extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[Form[models.Contact],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*2.2*/(addContactForm: Form[models.Contact]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(addContactForm: Form[models.Contact], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*2.40*/("""
-"""),_display_(/*3.2*/main("Contact")/*3.17*/{_display_(Seq[Any](format.raw/*3.18*/("""
+Seq[Any](format.raw/*2.65*/("""
+"""),_display_(/*3.2*/main("Contact", user)/*3.23*/{_display_(Seq[Any](format.raw/*3.24*/("""
 
 
     """),format.raw/*6.5*/("""<div class="col-md-2">
@@ -68,9 +68,9 @@ Seq[Any](format.raw/*2.40*/("""
     }
   }
 
-  def render(addContactForm:Form[models.Contact]): play.twirl.api.HtmlFormat.Appendable = apply(addContactForm)
+  def render(addContactForm:Form[models.Contact],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(addContactForm,user)
 
-  def f:((Form[models.Contact]) => play.twirl.api.HtmlFormat.Appendable) = (addContactForm) => apply(addContactForm)
+  def f:((Form[models.Contact],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (addContactForm,user) => apply(addContactForm,user)
 
   def ref: this.type = this
 
@@ -84,10 +84,10 @@ Seq[Any](format.raw/*2.40*/("""
 object contact extends contact_Scope0.contact_Scope1.contact
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 15 16:36:27 GMT 2016
+                  DATE: Fri Dec 16 12:40:05 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/contact.scala.html
-                  HASH: e0ece32d181db70fb8faa8be97dc1e2e5440be73
-                  MATRIX: 809->18|942->56|969->58|992->73|1030->74|1063->81|1406->397|1513->494|1553->495|1602->517|1710->603|1759->625|1866->710|1915->732|2018->813|2067->835|2174->920|2223->942|2330->1027|2379->1049|2467->1116|2517->1138|2691->1285|2706->1291|2750->1314|2928->1461|2969->1474|3033->1508
+                  HASH: acd5b402ba56fa961437d89a5876d52e3c00d2d3
+                  MATRIX: 827->18|985->81|1012->83|1041->104|1079->105|1112->112|1455->428|1562->525|1602->526|1651->548|1759->634|1808->656|1915->741|1964->763|2067->844|2116->866|2223->951|2272->973|2379->1058|2428->1080|2516->1147|2566->1169|2740->1316|2755->1322|2799->1345|2977->1492|3018->1505|3082->1539
                   LINES: 30->2|35->2|36->3|36->3|36->3|39->6|47->14|47->14|47->14|48->15|48->15|49->16|49->16|50->17|50->17|51->18|51->18|52->19|52->19|53->20|53->20|55->22|57->24|57->24|57->24|61->28|62->29|65->32
                   -- GENERATED --
               */

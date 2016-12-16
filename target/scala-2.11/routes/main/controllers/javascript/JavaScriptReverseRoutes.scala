@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/wdd/webapps/webca/conf/routes
-// @DATE:Thu Dec 15 21:21:23 GMT 2016
+// @DATE:Fri Dec 16 12:40:05 GMT 2016
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,20 +15,50 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:25
-  class ReverseAsyncController(_prefix: => String) {
+  // @LINE:31
+  class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:25
-    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.AsyncController.message",
+    // @LINE:33
+    def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.at",
+      """
+        function(base1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "public/base.css" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("base", base1)])})
+        }
+      """
+    )
+  
+    // @LINE:31
+    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.versioned",
+      """
+        function(file1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:26
+  class ReverseCountController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:26
+    def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CountController.count",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "count"})
         }
       """
     )
@@ -196,49 +226,59 @@ package controllers.javascript {
   }
 
   // @LINE:28
-  class ReverseAssets(_prefix: => String) {
+  class ReverseAsyncController(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:30
-    def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.at",
-      """
-        function(base1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "public/base.css" + _qS([(""" + implicitly[QueryStringBindable[String]].javascriptUnbind + """)("base", base1)])})
-        }
-      """
-    )
-  
     // @LINE:28
-    def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.versioned",
+    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AsyncController.message",
       """
-        function(file1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
         }
       """
     )
   
   }
 
-  // @LINE:23
-  class ReverseCountController(_prefix: => String) {
+  // @LINE:21
+  class ReverseLoginController(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:23
-    def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.CountController.count",
+    // @LINE:22
+    def loginSubmit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.LoginController.loginSubmit",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "count"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "loginSubmit"})
+        }
+      """
+    )
+  
+    // @LINE:23
+    def logout: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.LoginController.logout",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "logout"})
+        }
+      """
+    )
+  
+    // @LINE:21
+    def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.LoginController.login",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "Login"})
         }
       """
     )

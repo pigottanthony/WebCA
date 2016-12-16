@@ -1,10 +1,4 @@
-	@*
- * This template is called from the `index` template. This template
- * handles the rendering of the page header and body tags. It takes
- * two arguments, a `String` for the title of the page and an `Html`
- * object to insert into the body of the page.
- *@
-@(title: String)(content: Html)
+@(title: String, user: models.users.User)(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +50,26 @@
 						<ul class="nav navbar-nav navbar-right">
 							<!--<li @if(title == "Sign Up"){ class="active" ;}><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 							<li @if(title == "Sign In"){ class="active" ;}><a href="/signin"><span class="glyphicon glyphicon-user"></span> Sign In</a></li> -->
-							<li @if(title == "Account"){class = "active";)}><a href="/account"><span class="glyphicon glyphicon-user"></span>Account</a></li>
-							<li @if(title == "Cart"){ class="active" ;}><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+							@if(user == null) {
+								<li @if(title == "Login") {class = "active";)}><a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-user"></span>
+									Account</a> </li>
+								<li @if(title == "Cart") {
+									class="active" ;}><a href="@routes.HomeController.cart()"><span class="glyphicon glyphicon-shopping-cart"></span>
+									Cart</a></li>
+							}else{
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">@user.getName
+										<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="@routes.HomeController.addProduct()">Add Product</a></li>
+										<li><a href="@routes.LoginController.logout()">Logout</a></li>
+									</ul>
+								</li>
+                                <li @if(title == "Cart") {
+                                    class="active" ;}><a href="@routes.HomeController.cart()"><span class="glyphicon glyphicon-shopping-cart"></span>
+                                    Cart</a>
+                                </li>
+							}
 						</ul>
 					</div> 
 				</div>

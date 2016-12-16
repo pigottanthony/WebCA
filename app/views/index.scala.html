@@ -1,11 +1,17 @@
+@(user: models.users.User)
 @* @(products: List[models.Product]) *@
-@main("Home"){
+@main("Home", user){
     <div class="col-md-2">
     </div>
     <div class="col-md-10">
         @if(flash.containsKey("success")){
             <div class="alert alert-success">
             @flash.get("success")
+            </div>
+        }
+        @if(flash.containsKey("logout")){
+            <div class="alert alert-success">
+            @flash.get("logout")
             </div>
         }
         @if(flash.containsKey("bought")){

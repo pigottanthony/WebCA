@@ -21,16 +21,16 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class prod extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[List[models.Product],List[models.Category],play.twirl.api.HtmlFormat.Appendable] {
+class prod extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template3[List[models.Product],List[models.Category],models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(products: List[models.Product], categories: List[models.Category]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(products: List[models.Product], categories: List[models.Category], user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.69*/("""
-"""),_display_(/*2.2*/main("Products")/*2.18*/{_display_(Seq[Any](format.raw/*2.19*/("""
+Seq[Any](format.raw/*1.94*/("""
+"""),_display_(/*2.2*/main("Products", user)/*2.24*/{_display_(Seq[Any](format.raw/*2.25*/("""
     """),format.raw/*3.5*/("""<div class="col-md-3">
         <h4 class="text-center">Filters</h4>
         <div id="accordion">
@@ -113,9 +113,9 @@ Seq[Any](format.raw/*1.69*/("""
     }
   }
 
-  def render(products:List[models.Product],categories:List[models.Category]): play.twirl.api.HtmlFormat.Appendable = apply(products,categories)
+  def render(products:List[models.Product],categories:List[models.Category],user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(products,categories,user)
 
-  def f:((List[models.Product],List[models.Category]) => play.twirl.api.HtmlFormat.Appendable) = (products,categories) => apply(products,categories)
+  def f:((List[models.Product],List[models.Category],models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (products,categories,user) => apply(products,categories,user)
 
   def ref: this.type = this
 
@@ -128,10 +128,10 @@ Seq[Any](format.raw/*1.69*/("""
 object prod extends prod_Scope0.prod
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 15 20:17:33 GMT 2016
+                  DATE: Fri Dec 16 12:58:05 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/prod.scala.html
-                  HASH: 3bed319588c027fabf4b71897a5df9caf6a0cee1
-                  MATRIX: 779->1|941->68|968->70|992->86|1030->87|1061->92|1279->284|1293->290|1336->313|1424->375|1459->395|1498->397|1547->418|1584->428|1599->434|1649->463|1703->490|1713->491|1743->499|1796->524|1844->545|1854->546|1894->565|1975->615|2016->628|2275->860|2316->892|2355->893|2400->910|2478->961|2492->966|2528->981|2573->998|2624->1018|2665->1032|2698->1049|2737->1050|2782->1067|2959->1217|2974->1223|3057->1284|3282->1482|3292->1483|3321->1491|3378->1520|3509->1624|3557->1651|3614->1680|3824->1863|3839->1869|3898->1907|4208->2190|4223->2196|4282->2234|4617->2542|4645->2561|4684->2562|4741->2591|4836->2667|4849->2671|4888->2672|4945->2701|4982->2711|4997->2717|5051->2750|5233->2901|5282->2922|5356->2965|5392->2974|5489->3043|5518->3044|5571->3069|5652->3122|5681->3123|5722->3136|5837->3221
+                  HASH: 87ad13a5f72d962b19142fd915602dc8205df430
+                  MATRIX: 797->1|984->93|1011->95|1041->117|1079->118|1110->123|1328->315|1342->321|1385->344|1473->406|1508->426|1547->428|1596->449|1633->459|1648->465|1698->494|1752->521|1762->522|1792->530|1845->555|1893->576|1903->577|1943->596|2024->646|2065->659|2324->891|2365->923|2404->924|2449->941|2527->992|2541->997|2577->1012|2622->1029|2673->1049|2714->1063|2747->1080|2786->1081|2831->1098|3008->1248|3023->1254|3106->1315|3331->1513|3341->1514|3370->1522|3427->1551|3558->1655|3606->1682|3663->1711|3873->1894|3888->1900|3947->1938|4257->2221|4272->2227|4331->2265|4666->2573|4694->2592|4733->2593|4790->2622|4885->2698|4898->2702|4937->2703|4994->2732|5031->2742|5046->2748|5100->2781|5282->2932|5331->2953|5405->2996|5441->3005|5538->3074|5567->3075|5620->3100|5701->3153|5730->3154|5771->3167|5886->3252
                   LINES: 27->1|32->1|33->2|33->2|33->2|34->3|39->8|39->8|39->8|40->9|40->9|40->9|41->10|41->10|41->10|41->10|41->10|41->10|41->10|42->11|42->11|42->11|42->11|44->13|45->14|56->25|56->25|56->25|57->26|58->27|58->27|58->27|59->28|60->29|61->30|61->30|61->30|62->31|65->34|65->34|65->34|69->38|69->38|69->38|70->39|72->41|72->41|73->42|77->46|77->46|77->46|82->51|82->51|82->51|88->57|88->57|88->57|89->58|90->59|90->59|90->59|91->60|91->60|91->60|91->60|94->63|95->64|97->66|98->67|100->69|100->69|101->70|102->71|102->71|103->72|110->79
                   -- GENERATED --
               */

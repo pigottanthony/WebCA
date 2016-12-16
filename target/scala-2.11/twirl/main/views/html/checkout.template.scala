@@ -21,16 +21,16 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class checkout extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[Product,play.twirl.api.HtmlFormat.Appendable] {
+class checkout extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template2[models.users.User,Product,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(product: Product):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(user: models.users.User, product: Product):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.20*/("""
-"""),_display_(/*2.2*/main("checkout")/*2.18*/{_display_(Seq[Any](format.raw/*2.19*/("""
+Seq[Any](format.raw/*1.45*/("""
+"""),_display_(/*2.2*/main("checkout", user)/*2.24*/{_display_(Seq[Any](format.raw/*2.25*/("""
     """),format.raw/*3.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
@@ -56,9 +56,9 @@ Seq[Any](format.raw/*1.20*/("""
     }
   }
 
-  def render(product:Product): play.twirl.api.HtmlFormat.Appendable = apply(product)
+  def render(user:models.users.User,product:Product): play.twirl.api.HtmlFormat.Appendable = apply(user,product)
 
-  def f:((Product) => play.twirl.api.HtmlFormat.Appendable) = (product) => apply(product)
+  def f:((models.users.User,Product) => play.twirl.api.HtmlFormat.Appendable) = (user,product) => apply(user,product)
 
   def ref: this.type = this
 
@@ -71,10 +71,10 @@ Seq[Any](format.raw/*1.20*/("""
 object checkout extends checkout_Scope0.checkout
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 15 21:21:50 GMT 2016
+                  DATE: Fri Dec 16 12:40:05 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/checkout.scala.html
-                  HASH: 3db4ce162c39b92637976658fc10a1c11ebf9eb4
-                  MATRIX: 752->1|865->19|892->21|916->37|954->38|985->43|1390->421|1405->427|1447->448|1601->572
+                  HASH: c6ad389e78eb90c8662c63a40c154d31f51de22c
+                  MATRIX: 770->1|908->44|935->46|965->68|1003->69|1034->74|1439->452|1454->458|1496->479|1650->603
                   LINES: 27->1|32->1|33->2|33->2|33->2|34->3|45->14|45->14|45->14|53->22
                   -- GENERATED --
               */

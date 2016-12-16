@@ -18,6 +18,9 @@ GET     /updateProduct/:id      controllers.HomeController.updateProduct(id: Lon
 GET       /feedback             controllers.HomeController.feedback
 POST    /contactSubmit          controllers.HomeController.contactSubmit
 GET     /buy                    controllers.HomeController.buy
+GET /Login                      controllers.LoginController.login
+POST /loginSubmit                controllers.LoginController.loginSubmit
+GET /logout                     controllers.LoginController.logout
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

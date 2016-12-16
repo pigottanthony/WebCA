@@ -21,29 +21,36 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template0[play.twirl.api.HtmlFormat.Appendable] {
+class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[models.users.User,play.twirl.api.HtmlFormat.Appendable] {
 
-  /* @(products: List[models.Product]) */
-  def apply():play.twirl.api.HtmlFormat.Appendable = {
+  /**/
+  def apply/*1.2*/(user: models.users.User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](_display_(/*2.2*/main("Home")/*2.14*/{_display_(Seq[Any](format.raw/*2.15*/("""
-    """),format.raw/*3.5*/("""<div class="col-md-2">
+Seq[Any](format.raw/*1.27*/("""
+"""),format.raw/*2.40*/("""
+"""),_display_(/*3.2*/main("Home", user)/*3.20*/{_display_(Seq[Any](format.raw/*3.21*/("""
+    """),format.raw/*4.5*/("""<div class="col-md-2">
     </div>
     <div class="col-md-10">
-        """),_display_(/*6.10*/if(flash.containsKey("success"))/*6.42*/{_display_(Seq[Any](format.raw/*6.43*/("""
-            """),format.raw/*7.13*/("""<div class="alert alert-success">
-            """),_display_(/*8.14*/flash/*8.19*/.get("success")),format.raw/*8.34*/("""
-            """),format.raw/*9.13*/("""</div>
-        """)))}),format.raw/*10.10*/("""
-        """),_display_(/*11.10*/if(flash.containsKey("bought"))/*11.41*/{_display_(Seq[Any](format.raw/*11.42*/("""
-            """),format.raw/*12.13*/("""<div class="alert alert-success">
-            """),_display_(/*13.14*/flash/*13.19*/.get("bought")),format.raw/*13.33*/("""
-            """),format.raw/*14.13*/("""</div>
-        """)))}),format.raw/*15.10*/("""
-    """),format.raw/*16.5*/("""<div class="container-fluid">
+        """),_display_(/*7.10*/if(flash.containsKey("success"))/*7.42*/{_display_(Seq[Any](format.raw/*7.43*/("""
+            """),format.raw/*8.13*/("""<div class="alert alert-success">
+            """),_display_(/*9.14*/flash/*9.19*/.get("success")),format.raw/*9.34*/("""
+            """),format.raw/*10.13*/("""</div>
+        """)))}),format.raw/*11.10*/("""
+        """),_display_(/*12.10*/if(flash.containsKey("logout"))/*12.41*/{_display_(Seq[Any](format.raw/*12.42*/("""
+            """),format.raw/*13.13*/("""<div class="alert alert-success">
+            """),_display_(/*14.14*/flash/*14.19*/.get("logout")),format.raw/*14.33*/("""
+            """),format.raw/*15.13*/("""</div>
+        """)))}),format.raw/*16.10*/("""
+        """),_display_(/*17.10*/if(flash.containsKey("bought"))/*17.41*/{_display_(Seq[Any](format.raw/*17.42*/("""
+            """),format.raw/*18.13*/("""<div class="alert alert-success">
+            """),_display_(/*19.14*/flash/*19.19*/.get("bought")),format.raw/*19.33*/("""
+            """),format.raw/*20.13*/("""</div>
+        """)))}),format.raw/*21.10*/("""
+    """),format.raw/*22.5*/("""<div class="container-fluid">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -62,11 +69,11 @@ Seq[Any](_display_(/*2.2*/main("Home")/*2.14*/{_display_(Seq[Any](format.raw/*2.
                 </div>
             </div>
             <div class="item active">
-                <img src=""""),_display_(/*35.28*/routes/*35.34*/.Assets.versioned("images/background1.jpg")),format.raw/*35.77*/("""" height="225" width="737">
+                <img src=""""),_display_(/*41.28*/routes/*41.34*/.Assets.versioned("images/background1.jpg")),format.raw/*41.77*/("""" height="225" width="737">
             </div>
 
             <div class="item">
-                <img src=""""),_display_(/*39.28*/routes/*39.34*/.Assets.versioned("images/background2.jpg")),format.raw/*39.77*/("""" height="225" width="737">
+                <img src=""""),_display_(/*45.28*/routes/*45.34*/.Assets.versioned("images/background2.jpg")),format.raw/*45.77*/("""" height="225" width="737">
             </div>
         </div>
 
@@ -83,22 +90,22 @@ Seq[Any](_display_(/*2.2*/main("Home")/*2.14*/{_display_(Seq[Any](format.raw/*2.
 
 
       <h4 style="text-align:Center">FEATURED</h4>
-           """),format.raw/*56.38*/("""
-                """),format.raw/*57.17*/("""<div class="row">
+           """),format.raw/*62.38*/("""
+                """),format.raw/*63.17*/("""<div class="row">
 
                 </div>
-           """),format.raw/*60.19*/("""
-    """),format.raw/*61.5*/("""</div>
+           """),format.raw/*66.19*/("""
+    """),format.raw/*67.5*/("""</div>
     </div>
-""")))}),format.raw/*63.2*/("""
+""")))}),format.raw/*69.2*/("""
 """))
       }
     }
   }
 
-  def render(): play.twirl.api.HtmlFormat.Appendable = apply()
+  def render(user:models.users.User): play.twirl.api.HtmlFormat.Appendable = apply(user)
 
-  def f:(() => play.twirl.api.HtmlFormat.Appendable) = () => apply()
+  def f:((models.users.User) => play.twirl.api.HtmlFormat.Appendable) = (user) => apply(user)
 
   def ref: this.type = this
 
@@ -107,15 +114,15 @@ Seq[Any](_display_(/*2.2*/main("Home")/*2.14*/{_display_(Seq[Any](format.raw/*2.
 
 }
 
-/* @(products: List[models.Product]) */
+/**/
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Thu Dec 15 21:44:58 GMT 2016
+                  DATE: Fri Dec 16 12:40:06 GMT 2016
                   SOURCE: /home/wdd/webapps/webca/app/views/index.scala.html
-                  HASH: e1b74112b81a6cff8d59b02def868edac00bf207
-                  MATRIX: 862->42|882->54|920->55|952->61|1052->135|1092->167|1130->168|1171->182|1245->230|1258->235|1293->250|1334->264|1382->281|1420->292|1460->323|1499->324|1541->338|1616->386|1630->391|1665->405|1707->419|1755->436|1788->442|2659->1286|2674->1292|2738->1335|2875->1445|2890->1451|2954->1494|3653->2191|3699->2209|3783->2272|3816->2278|3867->2299
-                  LINES: 32->2|32->2|32->2|33->3|36->6|36->6|36->6|37->7|38->8|38->8|38->8|39->9|40->10|41->11|41->11|41->11|42->12|43->13|43->13|43->13|44->14|45->15|46->16|65->35|65->35|65->35|69->39|69->39|69->39|86->56|87->57|90->60|91->61|93->63
+                  HASH: b8d809ce091af196fddf96ec2ac5977737a8aa5b
+                  MATRIX: 756->1|876->26|905->67|933->70|959->88|997->89|1029->95|1129->169|1169->201|1207->202|1248->216|1322->264|1335->269|1370->284|1412->298|1460->315|1498->326|1538->357|1577->358|1619->372|1694->420|1708->425|1743->439|1785->453|1833->470|1871->481|1911->512|1950->513|1992->527|2067->575|2081->580|2116->594|2158->608|2206->625|2239->631|3110->1475|3125->1481|3189->1524|3326->1634|3341->1640|3405->1683|4104->2380|4150->2398|4234->2461|4267->2467|4318->2488
+                  LINES: 27->1|32->1|33->2|34->3|34->3|34->3|35->4|38->7|38->7|38->7|39->8|40->9|40->9|40->9|41->10|42->11|43->12|43->12|43->12|44->13|45->14|45->14|45->14|46->15|47->16|48->17|48->17|48->17|49->18|50->19|50->19|50->19|51->20|52->21|53->22|72->41|72->41|72->41|76->45|76->45|76->45|93->62|94->63|97->66|98->67|100->69
                   -- GENERATED --
               */
           
