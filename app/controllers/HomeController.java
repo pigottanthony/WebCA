@@ -141,7 +141,7 @@ public class HomeController extends Controller {
         List<Contact> contactsList = Contact.findAll();
         return ok(feedback.render(contactsList, getUserFromSession()));
     }
-
+    @Security.Authenticated(Secured.class)
     public Result checkout(Long id){
         Product p = Product.find.ref(id);
         return ok(checkout.render(getUserFromSession(), p));

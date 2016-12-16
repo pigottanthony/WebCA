@@ -41,19 +41,21 @@
                                     &euro;@("%.2f".format(p.getPrice))
                             </span>
                         </span>
-                        <div class="prodEdit">
-                            <span class="prodUpdate">
-                                <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </a>
-                            </span>
-                            <span class="prodDelete">
-                                <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
+                        @if(user != null && user.getRole == "admin") {
+                            <div class="prodEdit">
+                                <span class="prodUpdate">
+                                    <a href="@routes.HomeController.updateProduct(p.getId)" class="btn-xs btn-danger">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                </span>
+                                <span class="prodDelete">
+                                    <a href="@routes.HomeController.deleteProduct(p.getId)" class="btn-xs btn-danger"
                                     onclick="return confirmDel();">
-                                    <span class="gylpicon glyphicon-trash"></span>
-                                </a>
-                            </span>
-                        </div>
+                                        <span class="gylpicon glyphicon-trash"></span>
+                                    </a>
+                                </span>
+                            </div>
+                        }
                         @if(p.getStock == 0){
                             <span class="stockMsg">Sorry, out of stock!</span>
                         }else{

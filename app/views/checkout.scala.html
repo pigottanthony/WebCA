@@ -2,7 +2,19 @@
 @main("checkout", user){
     <div class="col-md-2">
     </div>
-    <div class="col-md-10">
+    <div class="col-md-2">
+        <img src="@routes.Assets.versioned("images/productImages/" + product.getId + ".jpg")" height="100"; width="100">
+    </div>
+    <div class="col-md-2"
+            <br/>
+    <br/>
+            Subtotal: &euro;@("%.2f".format(product.getPrice))
+        </br>
+            Shipping: &euro;10
+        <br/>
+            Total: &euro;@("%.2f".format(product.getPrice +10))
+    </div>
+    <div class="col-md-5">
         <div class="text-center">
             Card Number:<br>
             <input type="text" name="cardnum"><br>

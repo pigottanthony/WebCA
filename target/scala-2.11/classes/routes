@@ -21,6 +21,7 @@ GET     /buy                    controllers.HomeController.buy
 GET /Login                      controllers.LoginController.login
 POST /loginSubmit                controllers.LoginController.loginSubmit
 GET /logout                     controllers.LoginController.logout
+GET /loginFirst                 controllers.LoginController.loginFirst
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
